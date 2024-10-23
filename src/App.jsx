@@ -1,7 +1,6 @@
-import { useState } from 'react'
+
 import CardsLayout from './components/CardsLayout.jsx'
 import SearchBar from './components/SearchBar.jsx'
-
 import './App.css'
 
 function App() {
@@ -9,10 +8,10 @@ function App() {
   return (
       <>
           <div className="mt-6 mx-10">
-            <SearchBar/>
+              <SearchBar/>
           </div>
           <div>
-            <CardsLayout/>
+              <CardsLayout/>
           </div>
       </>
   )
