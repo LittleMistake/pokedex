@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 function PokeDatos() {
     const [data, setData] = useState(null);
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/charizard")
+        fetch("https://pokeapi.co/api/v2/pokemon/bellsprout")
             .then(res => res.json())
             .then(data => {
 
@@ -36,14 +36,22 @@ function PokeDatos() {
         }
         return objetoPokemon;
     }
-
+    const colores = {
+        water : 'text-cyan-600',
+        bug : 'text-green-600',
+        electric : 'text-yellow-600',
+        ghost : 'text-slate-600',
+        fairy : 'text-pink-600',
+        fire : 'text-amber-600',
+        grass : 'text-teal-600'
+    }
     return (
         <ul>
             {data ? (
                 <>
-                    <li>{data.name}</li>
-                    <li><img src={data.foto} alt={data.name}/></li>
-                    {data.tipos.map((tipo) => (<li key={tipo}>{tipo}</li>))}
+                    <li className="flex justify-center content-center text-3xl">{data.name}</li>
+                    <li className="flex justify-center content-center"><img className="size-40" src={data.foto} alt={data.name}/></li>
+                    <div className="grid grid-flow-col auto-cols-auto">{data.tipos.map((tipo) => (<li className="flex justify-center content-center text-2xl" key={tipo}>{tipo}</li>))}</div>
                 </>
             ) : (<p>Loading</p>)}
             {/*{data?.map((pokemon) => (<li key={pokemon.name}>{pokemon.name}</li>))}*/}
